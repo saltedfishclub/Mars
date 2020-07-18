@@ -9,13 +9,13 @@ public interface IDatabase {
 
     boolean drop(Class<?> table);
 
-    IRecord<?> fetch(IQuery query);
+    IRecord<?> fetch(IQuery<?> query);
 
-    IResult insert(Class<?> record, boolean overrideOnExists);
+    IResult insert(Object record, boolean overrideOnExists);
 
-    IResult update(Class<?> record);
+    IResult update(Object record);
 
-    IResult delete(Class<?> record);
+    IResult delete(Object record);
 
     void saveChanges();
 }
