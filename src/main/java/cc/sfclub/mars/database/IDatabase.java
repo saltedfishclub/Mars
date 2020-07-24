@@ -5,17 +5,17 @@ import cc.sfclub.mars.database.record.IRecord;
 import cc.sfclub.mars.database.result.IResult;
 
 public interface IDatabase {
-    boolean create(Class<?> table, boolean overrideOnDifferent);
+    boolean create(Class<?> table, String name);
 
-    boolean drop(Class<?> table);
+    boolean drop(String table);
 
     IRecord<?> fetch(IQuery<?> query);
 
-    IResult insert(Object record, boolean overrideOnExists);
+    IResult insert(Object record, String table, boolean overrideOnExists);
 
-    IResult update(Object record);
+    IResult update(Object record, String table);
 
-    IResult delete(Object record);
+    IResult delete(Object record, String table);
 
     void saveChanges();
 }
