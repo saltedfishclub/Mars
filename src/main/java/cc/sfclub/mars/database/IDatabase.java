@@ -4,12 +4,14 @@ import cc.sfclub.mars.database.query.IQuery;
 import cc.sfclub.mars.database.record.IRecord;
 import cc.sfclub.mars.database.result.IResult;
 
+import java.sql.ResultSet;
+
 public interface IDatabase {
     boolean create(Class<?> table, String name);
 
     boolean drop(String table);
 
-    IRecord<?> fetch(IQuery<?> query);
+    ResultSet fetch(IQuery<?> query);
 
     IResult insert(Object record, String table, boolean overrideOnExists);
 

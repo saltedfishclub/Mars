@@ -7,11 +7,14 @@ import cc.sfclub.mars.database.provider.DatabaseProviderFactory;
 import cc.sfclub.mars.database.provider.IDatabaseProvider;
 import cc.sfclub.mars.database.query.IQuery;
 import cc.sfclub.mars.database.record.IRecord;
+import cc.sfclub.mars.database.record.Record;
 import cc.sfclub.mars.database.result.IResult;
+import cc.sfclub.mars.database.result.Result;
 import cc.sfclub.mars.utility.Tuple3;
 
 import javax.sql.DataSource;
 import java.lang.reflect.Field;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -69,8 +72,8 @@ public class Mars implements IDatabase {
     }
 
     @Override
-    public IRecord<?> fetch(IQuery<?> query) {
-        return null;
+    public ResultSet fetch(IQuery<?> query) {
+        return query.query(provider);
     }
 
     @Override
