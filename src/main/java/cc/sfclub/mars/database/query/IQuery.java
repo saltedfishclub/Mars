@@ -1,5 +1,8 @@
 package cc.sfclub.mars.database.query;
 
+import cc.sfclub.mars.database.provider.IDatabaseProvider;
+
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.Map;
 
@@ -10,17 +13,17 @@ public interface IQuery<T> {
 
     IQuery<T> selectAll();
 
-    IQuery<T> from(Class<T> clazz, String table);
+    IQuery<T> from(String table);
 
     IQuery<T> where(String condition, String... args);
 
-    IQuery<T> orderBy(String column, boolean asc);
+    //IQuery<T> orderBy(String column, boolean asc);
 
     IQuery<T> limit(int count);
 
-    List<T> toList();
-
-    T firstOrDefault();
+    String[] args();
 
     String getSql();
+
+    ResultSet query(IDatabaseProvider provider);
 }

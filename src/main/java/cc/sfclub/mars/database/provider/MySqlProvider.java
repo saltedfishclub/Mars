@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -83,6 +84,18 @@ public class MySqlProvider implements IDatabaseProvider {
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
+        }
+    }
+
+    @Override
+    public ResultSet query(String sql, String... args) {
+        try {
+            Connection connection = db.getConnection();
+            PreparedStatement ps = connection.prepareStatement(sql, args);
+            return ps.executeQuery();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return null;
         }
     }
 }
