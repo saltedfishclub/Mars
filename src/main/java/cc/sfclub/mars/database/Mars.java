@@ -11,6 +11,7 @@ import cc.sfclub.mars.database.record.Record;
 import cc.sfclub.mars.database.result.IResult;
 import cc.sfclub.mars.database.result.Result;
 import cc.sfclub.mars.utility.Tuple3;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.sql.DataSource;
 import java.lang.reflect.Field;
@@ -93,6 +94,6 @@ public class Mars implements IDatabase {
 
     @Override
     public void saveChanges() {
-
+        throw new NotImplementedException();
     }
 }
